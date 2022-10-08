@@ -14,7 +14,56 @@
             "metadata": {
                 "description": "Location of the Shared Image Gallery."
             }
+        },
+        "personalimgname": {
+            "type": "string"
+
+        },
+        "personalimgsku": {
+            "type": "string"
+
+        },
+        "personalimgoffer": {
+            "type": "string"
+
+        },
+        "personalimgpublisher": {
+            "type": "string"
+
+        },
+        "pooledsingleimgname": {
+            "type": "string"
+
+        },
+        "pooledsingleimgsku": {
+            "type": "string"
+
+        },
+        "pooledsingleimgoffer": {
+            "type": "string"
+
+        },
+        "pooledsingleimgpublisher": {
+            "type": "string"
+
+        },
+        "multisessionimgname": {
+            "type": "string"
+
+        },
+        "multisessionimgsku": {
+            "type": "string"
+
+        },
+        "multisessionimgoffer": {
+            "type": "string"
+
+        },
+        "multisessionimgpublisher": {
+            "type": "string"
+
         }
+
     },
     "resources": [
         {
@@ -25,8 +74,59 @@
             "properties": {
                 "description": "My Private Gallery"
             }
+        },
+        {
+            "type": "Microsoft.Compute/galleries/images",
+            "name": "[concat(parameters('galleryName'),'/',parameters('personalimgname'))]",
+            "apiVersion": "2021-10-01",
+            "location": "[parameters('location')]",
+            "properties": {
+                "description": "image defenition for Personal image Type",
+                "osType": "Windows",
+                "osState": "Generalized",
+                "hyperVGeneration": "V2",
+                "identifier": {
+                    "offer": "[parameters('personalimgoffer')]",
+                    "publisher": "[parameters('personalimgpublisher')]",
+                    "sku": "[parameters('personalimgsku')]"
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Compute/galleries/images",
+            "name": "[concat(parameters('galleryName'),'/',parameters('pooledsingleimgname'))]",
+            "apiVersion": "2021-10-01",
+            "location": "[parameters('location')]",
+            "properties": {
+                "description": "image defenition for Personal image Type",
+                "osType": "Windows",
+                "osState": "Generalized",
+                "hyperVGeneration": "V2",
+                "identifier": {
+                    "offer": "[parameters('pooledsingleimgoffer')]",
+                    "publisher": "[parameters('pooledsingleimgpublisher')]",
+                    "sku": "[parameters('pooledsingleimgsku')]"
+                }
+            }
+
+        },
+        {
+            "type": "Microsoft.Compute/galleries/images",
+            "name": "[concat(parameters('galleryName'),'/',parameters('multisessionimgname'))]",
+            "apiVersion": "2021-10-01",
+            "location": "[parameters('location')]",
+            "properties": {
+                "description": "image defenition for Personal image Type",
+                "osType": "Windows",
+                "osState": "Generalized",
+                "hyperVGeneration": "V2",
+                "identifier": {
+                    "offer": "[parameters('multisessionimgoffer')]",
+                    "publisher": "[parameters('multisessionimgpublisher')]",
+                    "sku": "[parameters('multisessionimgsku')]"
+                }
+            }
+
         }
-
-
     ]
 }
