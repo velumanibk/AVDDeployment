@@ -3,10 +3,10 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "rgName": {
-            "value": ""
+            "value": "abc"
         },
         "rgLocation": {
-            "value": ""
+            "value": "Australia East"
         }
     }
 }

@@ -15,51 +15,51 @@
                 "description": "Location of the Shared Image Gallery."
             }
         },
-        "personalimgname": {
+        "ImageDefenition1name": {
             "type": "string"
 
         },
-        "personalimgsku": {
+        "ImageDefenition1sku": {
             "type": "string"
 
         },
-        "personalimgoffer": {
+        "ImageDefenition1offer": {
             "type": "string"
 
         },
-        "personalimgpublisher": {
+        "ImageDefenition1publisher": {
             "type": "string"
 
         },
-        "pooledsingleimgname": {
+        "ImageDefenition2name": {
             "type": "string"
 
         },
-        "pooledsingleimgsku": {
+        "ImageDefenition2sku": {
             "type": "string"
 
         },
-        "pooledsingleimgoffer": {
+        "ImageDefenition2offer": {
             "type": "string"
 
         },
-        "pooledsingleimgpublisher": {
+        "ImageDefenition2publisher": {
             "type": "string"
 
         },
-        "multisessionimgname": {
+        "ImageDefenition3name": {
             "type": "string"
 
         },
-        "multisessionimgsku": {
+        "ImageDefenition3sku": {
             "type": "string"
 
         },
-        "multisessionimgoffer": {
+        "ImageDefenition3offer": {
             "type": "string"
 
         },
-        "multisessionimgpublisher": {
+        "ImageDefenition3publisher": {
             "type": "string"
 
         }
@@ -77,7 +77,7 @@
         },
         {
             "type": "Microsoft.Compute/galleries/images",
-            "name": "[concat(parameters('galleryName'),'/',parameters('personalimgname'))]",
+            "name": "[concat(parameters('galleryName'),'/',parameters('ImageDefenition1name'))]",
             "apiVersion": "2021-10-01",
             "location": "[parameters('location')]",
             "properties": {
@@ -86,15 +86,15 @@
                 "osState": "Generalized",
                 "hyperVGeneration": "V2",
                 "identifier": {
-                    "offer": "[parameters('personalimgoffer')]",
-                    "publisher": "[parameters('personalimgpublisher')]",
-                    "sku": "[parameters('personalimgsku')]"
+                    "offer": "[parameters('ImageDefenition1offer')]",
+                    "publisher": "[parameters('ImageDefenition1publisher')]",
+                    "sku": "[parameters('ImageDefenition1sku')]"
                 }
             }
         },
         {
             "type": "Microsoft.Compute/galleries/images",
-            "name": "[concat(parameters('galleryName'),'/',parameters('pooledsingleimgname'))]",
+            "name": "[concat(parameters('galleryName'),'/',parameters('ImageDefenition2name'))]",
             "apiVersion": "2021-10-01",
             "location": "[parameters('location')]",
             "properties": {
@@ -103,16 +103,16 @@
                 "osState": "Generalized",
                 "hyperVGeneration": "V2",
                 "identifier": {
-                    "offer": "[parameters('pooledsingleimgoffer')]",
-                    "publisher": "[parameters('pooledsingleimgpublisher')]",
-                    "sku": "[parameters('pooledsingleimgsku')]"
+                    "offer": "[parameters('ImageDefenition2offer')]",
+                    "publisher": "[parameters('ImageDefenition2publisher')]",
+                    "sku": "[parameters('ImageDefenition2sku')]"
                 }
             }
 
         },
         {
             "type": "Microsoft.Compute/galleries/images",
-            "name": "[concat(parameters('galleryName'),'/',parameters('multisessionimgname'))]",
+            "name": "[concat(parameters('galleryName'),'/',parameters('ImageDefenition3name'))]",
             "apiVersion": "2021-10-01",
             "location": "[parameters('location')]",
             "properties": {
@@ -121,9 +121,9 @@
                 "osState": "Generalized",
                 "hyperVGeneration": "V2",
                 "identifier": {
-                    "offer": "[parameters('multisessionimgoffer')]",
-                    "publisher": "[parameters('multisessionimgpublisher')]",
-                    "sku": "[parameters('multisessionimgsku')]"
+                    "offer": "[parameters('ImageDefenition3offer')]",
+                    "publisher": "[parameters('ImageDefenition3publisher')]",
+                    "sku": "[parameters('ImageDefenition3sku')]"
                 }
             }
 
