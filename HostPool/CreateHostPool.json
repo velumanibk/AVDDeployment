@@ -1,0 +1,107 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspacename": {
+            "type": "string"
+        },
+        "HostPool1Name": {
+            "type": "string"
+        },
+        "HostPool2Name": {
+            "type": "string"
+        },
+        "HostPool3Name": {
+            "type": "string"
+        },
+        "HostPool4Name": {
+            "type": "string"
+        },
+        "Location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        },
+        "InitialImageVersion": {
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+
+        {
+
+            "type": "Microsoft.DesktopVirtualization/workspaces",
+            "apiVersion": "2021-07-12",
+            "name":"[parameters('workspacename')]",
+            "location":"[parameters('Location')]",
+            "properties": {
+                "friendlyName": "NONPROD AVD WORK SPACE"
+            }
+
+        },
+        {
+            "type": "Microsoft.DesktopVirtualization/hostPools",
+            "apiVersion": "2021-07-12",
+            "location": "[parameters('Location')]",
+            "name": "[parameters('HostPool1Name')]",
+            "tags": {
+                "ImageVersion": "[parameters('InitialImageVersion')]"
+            },
+            "properties": {
+                "hostPoolType": "Pooled",
+                "maxSessionLimit": 30,
+                "loadBalancerType": "BreadthFirst",
+                "preferredAppGroupType": "RailApplications"
+            }
+        },
+        {
+            "type": "Microsoft.DesktopVirtualization/hostPools",
+            "apiVersion": "2021-07-12",
+            "location": "[parameters('Location')]",
+            "name": "[parameters('HostPool2Name')]",
+            "tags": {
+                "ImageVersion": "[parameters('InitialImageVersion')]"
+            },
+            "properties": {
+                "hostPoolType": "Pooled",
+                "maxSessionLimit": 30,
+                "loadBalancerType": "BreadthFirst",
+                "preferredAppGroupType": "RailApplications"
+            }
+        },
+        {
+            "type": "Microsoft.DesktopVirtualization/hostPools",
+            "apiVersion": "2021-07-12",
+            "location": "[parameters('Location')]",
+            "name": "[parameters('HostPool3Name')]",
+            "tags": {
+                "ImageVersion": "[parameters('InitialImageVersion')]"
+            },
+            "properties": {
+                "hostPoolType": "Pooled",
+                "maxSessionLimit": 1,
+                "loadBalancerType": "BreadthFirst",
+                "preferredAppGroupType": "Desktop"
+            }
+        },
+        {
+            "type": "Microsoft.DesktopVirtualization/hostPools",
+            "apiVersion": "2021-07-12",
+            "location": "[parameters('Location')]",
+            "name": "[parameters('HostPool4Name')]",
+            "tags": {
+                "ImageVersion": "[parameters('InitialImageVersion')]"
+            },
+            "properties": {
+                "hostPoolType": "Personal",
+                "loadBalancerType": "Persistent",
+                "personalDesktopAssignmentType": "Automatic",
+                "preferredAppGroupType": "Desktop"
+            }
+        }
+
+    ],
+    "outputs": {}
+
+
+}
